@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 protocol MemoryDelegate: class {
-    func imagePickerController(controller: ImagePickerController, didFinishWritingMemory memoryName: String, memoryDesc: String, memoryFileName: String)
+    func imagePickerController(didFinishWritingMemory memoryName: String, memoryDesc: String, memoryFileName: String)
+    
+    func imagePickerController()
 }

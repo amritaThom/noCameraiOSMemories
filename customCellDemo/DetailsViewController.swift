@@ -11,45 +11,47 @@ import CoreData
 
 class DetailsViewController: UIViewController, CancelButtonDelegate, UpdatingDelegate {
     
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    // On this page we'll be passing data back and forth, so we need a delegate to handle that for us. Our memories delegate is in charge of data. Our cancel button delegate is only for the cancel button
+    weak var memoriesDelegate: MemoryDelegate?
+    // from the previous view controller, we'll find out which memory we're supposed to take a closer look at.
     weak var memoryToStudy: Memory?
     weak var cancelButtonDelegate: CancelButtonDelegate?
-    weak var importantImage: UIImage?
-    var importantImageFile: String?
     
     @IBOutlet weak var imageToStudy: UIImageView!
     
     @IBOutlet weak var descriptionTextView: UITextView!
     
-   
     @IBOutlet weak var nameLabel: UILabel!
     
+    // When someone wants to press the update button, we'll have to go along the updating segue. But not before visiting Prepare for Segue!
     @IBAction func updateButtonPressed(sender: UIButton) {
         performSegueWithIdentifier("updatingSegue", sender: self)
-        print("updating!")
     }
     
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+        // If someone presses the cancel button, we'll just make the delegate take care of that.
         cancelButtonDelegate?.cancelButtonPressedFrom(self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let navigationController = segue.destinationViewController as! UINavigationController
         if segue.identifier == "updatingSegue" {
-            let navigationController = segue.destinationViewController as! UINavigationController
-            let controller = navigationController.topViewController as! ImagePickerController
+            //if we're going to use the updating segue, our controller will be the Update View Controller
+            let controller = navigationController.topViewController as! UpdateViewController
             controller.cancelButtonDelegate = self
             controller.updatingDelegate = self
-            if let impimg = importantImage {
-                controller.imageToUpdate = impimg
-            }
+            // this page will the the next page's updating delegate
             if let impmem = memoryToStudy {
+                // safely unwrapping our memory to study and sending that along to the next page as its memory to update
                 controller.memoryToUpdate = impmem
             }
         }
+        
     }
     
     func cancelButtonPressedFrom(controller: UIViewController){
+        // if someone proceeded on to the UpdateViewController, then we need to be its cancel button delegate
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -58,62 +60,32 @@ class DetailsViewController: UIViewController, CancelButtonDelegate, UpdatingDel
     override func viewDidLoad(){
         super.viewDidLoad()
         if let memory = memoryToStudy {
+            
+            // when we receive a memory from the previous view controller, we use it to decide how to populate our labels, text views, and image fields.
             nameLabel.text = memory.name
             descriptionTextView.text = memory.desc
+            imageToStudy.image = UIImage(named: memory.fileName!)
            
-        }
-        if let impimg = importantImage {
-            imageToStudy.image = impimg
         }
         imageToStudy.contentMode = .ScaleAspectFit
 
     }
-    
-    func getImage(filename:String) -> Bool{
-        let fileManager = NSFileManager.defaultManager()
-        let imagePath = (getDocumentsDirectory() as NSString).stringByAppendingPathComponent(filename)
-        if fileManager.fileExistsAtPath(imagePath){
-            return true
-        } else {
-            print("not found")
-            return false
-        }
-    }
-    
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
+ 
 
     
     func updatingExistingMemory(memory: Memory) {
-        
+        // if someone updates the memory on the next page, we'll dismiss that top view controller.
         dismissViewControllerAnimated(true, completion: nil)
-        print("in the updating existing memory")
-        if managedObjectContext.hasChanges {
-            do { try managedObjectContext.save()
-                print("success in updating")
-            }
-            catch {
-                print("\(error)")
-            }
-        }
+        // and then refer to our own delegate, which can actually save the changes to core data
+        memoriesDelegate?.imagePickerController()
+        
+        // on this view controller, we'll use the changes made by their actions to update the label text, text field text, and image.
         nameLabel.text = memory.name
         descriptionTextView.text = memory.desc
-        if let correctString = memory.fileName {
-            print("the new correct String", correctString)
-            imageToStudy.contentMode = .ScaleAspectFit
-            if getImage(correctString){
-                print("display non snail for update")
-                let updatedimage = (getDocumentsDirectory() as NSString).stringByAppendingPathComponent(correctString)
-                imageToStudy.image = UIImage(contentsOfFile: updatedimage)
-                importantImage = UIImage(contentsOfFile: updatedimage)
-            }
-            else {
-            imageToStudy.image = UIImage(named: "snail")
-            }
-        }
+        imageToStudy.image = UIImage(named: memory.fileName!)
+
     }
+   
+
 }
 

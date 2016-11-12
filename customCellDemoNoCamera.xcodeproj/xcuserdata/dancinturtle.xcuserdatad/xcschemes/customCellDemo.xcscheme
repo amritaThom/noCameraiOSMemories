@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "952609371D89B85600839264"
-               BuildableName = "customCellDemo.app"
-               BlueprintName = "customCellDemo"
-               ReferencedContainer = "container:customCellDemo.xcodeproj">
+               BuildableName = "customCellDemoNoCamera.app"
+               BlueprintName = "customCellDemoNoCamera"
+               ReferencedContainer = "container:customCellDemoNoCamera.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9526094E1D89B85600839264"
-               BuildableName = "customCellDemoTests.xctest"
-               BlueprintName = "customCellDemoTests"
-               ReferencedContainer = "container:customCellDemo.xcodeproj">
+               BuildableName = "customCellDemoNoCameraTests.xctest"
+               BlueprintName = "customCellDemoNoCameraTests"
+               ReferencedContainer = "container:customCellDemoNoCamera.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "952609591D89B85600839264"
-               BuildableName = "customCellDemoUITests.xctest"
-               BlueprintName = "customCellDemoUITests"
-               ReferencedContainer = "container:customCellDemo.xcodeproj">
+               BuildableName = "customCellDemoNoCameraUITests.xctest"
+               BlueprintName = "customCellDemoNoCameraUITests"
+               ReferencedContainer = "container:customCellDemoNoCamera.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "952609371D89B85600839264"
-            BuildableName = "customCellDemo.app"
-            BlueprintName = "customCellDemo"
-            ReferencedContainer = "container:customCellDemo.xcodeproj">
+            BuildableName = "customCellDemoNoCamera.app"
+            BlueprintName = "customCellDemoNoCamera"
+            ReferencedContainer = "container:customCellDemoNoCamera.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "952609371D89B85600839264"
-            BuildableName = "customCellDemo.app"
-            BlueprintName = "customCellDemo"
-            ReferencedContainer = "container:customCellDemo.xcodeproj">
+            BuildableName = "customCellDemoNoCamera.app"
+            BlueprintName = "customCellDemoNoCamera"
+            ReferencedContainer = "container:customCellDemoNoCamera.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "952609371D89B85600839264"
-            BuildableName = "customCellDemo.app"
-            BlueprintName = "customCellDemo"
-            ReferencedContainer = "container:customCellDemo.xcodeproj">
+            BuildableName = "customCellDemoNoCamera.app"
+            BlueprintName = "customCellDemoNoCamera"
+            ReferencedContainer = "container:customCellDemoNoCamera.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

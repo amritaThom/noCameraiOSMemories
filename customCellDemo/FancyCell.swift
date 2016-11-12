@@ -9,7 +9,6 @@
 import UIKit
 
 class FancyCell: UITableViewCell {
-    var index = 0
     
     var buttonDelegate: FancyCellDelegate?
     
@@ -20,6 +19,7 @@ class FancyCell: UITableViewCell {
     
 
     @IBAction func fancyfancybutton(sender: UIButton) {
+        
         buttonDelegate?.descriptionButtonPressedFrom(self)
     }
     

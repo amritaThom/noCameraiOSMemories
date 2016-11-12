@@ -16,7 +16,7 @@
 		952609541D89B85600839264 /* customCellDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952609531D89B85600839264 /* customCellDemoTests.swift */; };
 		9526095F1D89B85600839264 /* customCellDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526095E1D89B85600839264 /* customCellDemoUITests.swift */; };
 		9526096D1D89E44800839264 /* FancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526096C1D89E44800839264 /* FancyCell.swift */; };
-		9526096F1D8A042F00839264 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526096E1D8A042F00839264 /* ImagePickerController.swift */; };
+		9526096F1D8A042F00839264 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526096E1D8A042F00839264 /* UpdateViewController.swift */; };
 		952609721D8A288F00839264 /* Memory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952609701D8A288F00839264 /* Memory+CoreDataProperties.swift */; };
 		952609731D8A288F00839264 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952609711D8A288F00839264 /* Memory.swift */; };
 		952609751D8A498000839264 /* CancelButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952609741D8A498000839264 /* CancelButtonDelegate.swift */; };
@@ -24,6 +24,9 @@
 		952609791D8A669200839264 /* FancyCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952609781D8A669200839264 /* FancyCellDelegate.swift */; };
 		9526097B1D8A684700839264 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526097A1D8A684700839264 /* DetailsViewController.swift */; };
 		9526097D1D8A7A0C00839264 /* UpdatingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526097C1D8A7A0C00839264 /* UpdatingDelegate.swift */; };
+		95D6BFFD1DD66DE8007326DC /* PictureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D6BFFC1DD66DE8007326DC /* PictureDelegate.swift */; };
+		95ECCB921DD664D0003265FB /* PictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECCB911DD664D0003265FB /* PictureCollectionViewController.swift */; };
+		95ECCB941DD6682D003265FB /* CollectionViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ECCB931DD6682D003265FB /* CollectionViewCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		952609381D89B85600839264 /* customCellDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = customCellDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		952609381D89B85600839264 /* customCellDemoNoCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = customCellDemoNoCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9526093B1D89B85600839264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9526093D1D89B85600839264 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		952609401D89B85600839264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,14 +55,14 @@
 		952609451D89B85600839264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		952609481D89B85600839264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9526094A1D89B85600839264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9526094F1D89B85600839264 /* customCellDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customCellDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9526094F1D89B85600839264 /* customCellDemoNoCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customCellDemoNoCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		952609531D89B85600839264 /* customCellDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCellDemoTests.swift; sourceTree = "<group>"; };
 		952609551D89B85600839264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9526095A1D89B85600839264 /* customCellDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customCellDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9526095A1D89B85600839264 /* customCellDemoNoCameraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customCellDemoNoCameraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9526095E1D89B85600839264 /* customCellDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCellDemoUITests.swift; sourceTree = "<group>"; };
 		952609601D89B85600839264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9526096C1D89E44800839264 /* FancyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyCell.swift; sourceTree = "<group>"; };
-		9526096E1D8A042F00839264 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		9526096E1D8A042F00839264 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		952609701D8A288F00839264 /* Memory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Memory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		952609711D8A288F00839264 /* Memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		952609741D8A498000839264 /* CancelButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButtonDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +70,9 @@
 		952609781D8A669200839264 /* FancyCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyCellDelegate.swift; sourceTree = "<group>"; };
 		9526097A1D8A684700839264 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		9526097C1D8A7A0C00839264 /* UpdatingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatingDelegate.swift; sourceTree = "<group>"; };
+		95D6BFFC1DD66DE8007326DC /* PictureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDelegate.swift; sourceTree = "<group>"; };
+		95ECCB911DD664D0003265FB /* PictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewController.swift; sourceTree = "<group>"; };
+		95ECCB931DD6682D003265FB /* CollectionViewCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +105,7 @@
 			children = (
 				952609701D8A288F00839264 /* Memory+CoreDataProperties.swift */,
 				952609711D8A288F00839264 /* Memory.swift */,
-				9526093A1D89B85600839264 /* customCellDemo */,
+				9526093A1D89B85600839264 /* customCellDemoNoCamera */,
 				952609521D89B85600839264 /* customCellDemoTests */,
 				9526095D1D89B85600839264 /* customCellDemoUITests */,
 				952609391D89B85600839264 /* Products */,
@@ -109,14 +115,14 @@
 		952609391D89B85600839264 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				952609381D89B85600839264 /* customCellDemo.app */,
-				9526094F1D89B85600839264 /* customCellDemoTests.xctest */,
-				9526095A1D89B85600839264 /* customCellDemoUITests.xctest */,
+				952609381D89B85600839264 /* customCellDemoNoCamera.app */,
+				9526094F1D89B85600839264 /* customCellDemoNoCameraTests.xctest */,
+				9526095A1D89B85600839264 /* customCellDemoNoCameraUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9526093A1D89B85600839264 /* customCellDemo */ = {
+		9526093A1D89B85600839264 /* customCellDemoNoCamera */ = {
 			isa = PBXGroup;
 			children = (
 				9526093B1D89B85600839264 /* AppDelegate.swift */,
@@ -124,7 +130,7 @@
 				9526097A1D8A684700839264 /* DetailsViewController.swift */,
 				952609741D8A498000839264 /* CancelButtonDelegate.swift */,
 				9526093F1D89B85600839264 /* Main.storyboard */,
-				9526096E1D8A042F00839264 /* ImagePickerController.swift */,
+				9526096E1D8A042F00839264 /* UpdateViewController.swift */,
 				952609761D8A4A5900839264 /* MemoryDelegate.swift */,
 				9526096C1D89E44800839264 /* FancyCell.swift */,
 				952609781D8A669200839264 /* FancyCellDelegate.swift */,
@@ -133,7 +139,11 @@
 				9526094A1D89B85600839264 /* Info.plist */,
 				952609421D89B85600839264 /* customCellDemo.xcdatamodeld */,
 				9526097C1D8A7A0C00839264 /* UpdatingDelegate.swift */,
+				95ECCB911DD664D0003265FB /* PictureCollectionViewController.swift */,
+				95ECCB931DD6682D003265FB /* CollectionViewCustomCell.swift */,
+				95D6BFFC1DD66DE8007326DC /* PictureDelegate.swift */,
 			);
+			name = customCellDemoNoCamera;
 			path = customCellDemo;
 			sourceTree = "<group>";
 		};
@@ -158,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		952609371D89B85600839264 /* customCellDemo */ = {
+		952609371D89B85600839264 /* customCellDemoNoCamera */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 952609631D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemo" */;
+			buildConfigurationList = 952609631D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoNoCamera" */;
 			buildPhases = (
 				952609341D89B85600839264 /* Sources */,
 				952609351D89B85600839264 /* Frameworks */,
@@ -170,14 +180,14 @@
 			);
 			dependencies = (
 			);
-			name = customCellDemo;
+			name = customCellDemoNoCamera;
 			productName = customCellDemo;
-			productReference = 952609381D89B85600839264 /* customCellDemo.app */;
+			productReference = 952609381D89B85600839264 /* customCellDemoNoCamera.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9526094E1D89B85600839264 /* customCellDemoTests */ = {
+		9526094E1D89B85600839264 /* customCellDemoNoCameraTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 952609661D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoTests" */;
+			buildConfigurationList = 952609661D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoNoCameraTests" */;
 			buildPhases = (
 				9526094B1D89B85600839264 /* Sources */,
 				9526094C1D89B85600839264 /* Frameworks */,
@@ -188,14 +198,14 @@
 			dependencies = (
 				952609511D89B85600839264 /* PBXTargetDependency */,
 			);
-			name = customCellDemoTests;
+			name = customCellDemoNoCameraTests;
 			productName = customCellDemoTests;
-			productReference = 9526094F1D89B85600839264 /* customCellDemoTests.xctest */;
+			productReference = 9526094F1D89B85600839264 /* customCellDemoNoCameraTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		952609591D89B85600839264 /* customCellDemoUITests */ = {
+		952609591D89B85600839264 /* customCellDemoNoCameraUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 952609691D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoUITests" */;
+			buildConfigurationList = 952609691D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoNoCameraUITests" */;
 			buildPhases = (
 				952609561D89B85600839264 /* Sources */,
 				952609571D89B85600839264 /* Frameworks */,
@@ -206,9 +216,9 @@
 			dependencies = (
 				9526095C1D89B85600839264 /* PBXTargetDependency */,
 			);
-			name = customCellDemoUITests;
+			name = customCellDemoNoCameraUITests;
 			productName = customCellDemoUITests;
-			productReference = 9526095A1D89B85600839264 /* customCellDemoUITests.xctest */;
+			productReference = 9526095A1D89B85600839264 /* customCellDemoNoCameraUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -237,7 +247,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 952609331D89B85600839264 /* Build configuration list for PBXProject "customCellDemo" */;
+			buildConfigurationList = 952609331D89B85600839264 /* Build configuration list for PBXProject "customCellDemoNoCamera" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -250,9 +260,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				952609371D89B85600839264 /* customCellDemo */,
-				9526094E1D89B85600839264 /* customCellDemoTests */,
-				952609591D89B85600839264 /* customCellDemoUITests */,
+				952609371D89B85600839264 /* customCellDemoNoCamera */,
+				9526094E1D89B85600839264 /* customCellDemoNoCameraTests */,
+				952609591D89B85600839264 /* customCellDemoNoCameraUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,11 +304,14 @@
 				9526093E1D89B85600839264 /* HomeViewController.swift in Sources */,
 				952609751D8A498000839264 /* CancelButtonDelegate.swift in Sources */,
 				9526097B1D8A684700839264 /* DetailsViewController.swift in Sources */,
+				95D6BFFD1DD66DE8007326DC /* PictureDelegate.swift in Sources */,
 				9526093C1D89B85600839264 /* AppDelegate.swift in Sources */,
 				952609731D8A288F00839264 /* Memory.swift in Sources */,
 				952609771D8A4A5900839264 /* MemoryDelegate.swift in Sources */,
+				95ECCB921DD664D0003265FB /* PictureCollectionViewController.swift in Sources */,
+				95ECCB941DD6682D003265FB /* CollectionViewCustomCell.swift in Sources */,
 				952609791D8A669200839264 /* FancyCellDelegate.swift in Sources */,
-				9526096F1D8A042F00839264 /* ImagePickerController.swift in Sources */,
+				9526096F1D8A042F00839264 /* UpdateViewController.swift in Sources */,
 				952609441D89B85600839264 /* customCellDemo.xcdatamodeld in Sources */,
 				9526096D1D89E44800839264 /* FancyCell.swift in Sources */,
 			);
@@ -325,12 +338,12 @@
 /* Begin PBXTargetDependency section */
 		952609511D89B85600839264 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 952609371D89B85600839264 /* customCellDemo */;
+			target = 952609371D89B85600839264 /* customCellDemoNoCamera */;
 			targetProxy = 952609501D89B85600839264 /* PBXContainerItemProxy */;
 		};
 		9526095C1D89B85600839264 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 952609371D89B85600839264 /* customCellDemo */;
+			target = 952609371D89B85600839264 /* customCellDemoNoCamera */;
 			targetProxy = 9526095B1D89B85600839264 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -482,7 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.customCellDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/customCellDemo.app/customCellDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/customCellDemoNoCamera.app/customCellDemoNoCamera";
 			};
 			name = Debug;
 		};
@@ -494,7 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingdojo.customCellDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/customCellDemo.app/customCellDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/customCellDemoNoCamera.app/customCellDemoNoCamera";
 			};
 			name = Release;
 		};
@@ -523,7 +536,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		952609331D89B85600839264 /* Build configuration list for PBXProject "customCellDemo" */ = {
+		952609331D89B85600839264 /* Build configuration list for PBXProject "customCellDemoNoCamera" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				952609611D89B85600839264 /* Debug */,
@@ -532,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		952609631D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemo" */ = {
+		952609631D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoNoCamera" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				952609641D89B85600839264 /* Debug */,
@@ -541,7 +554,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		952609661D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoTests" */ = {
+		952609661D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoNoCameraTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				952609671D89B85600839264 /* Debug */,
@@ -550,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		952609691D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoUITests" */ = {
+		952609691D89B85600839264 /* Build configuration list for PBXNativeTarget "customCellDemoNoCameraUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9526096A1D89B85600839264 /* Debug */,

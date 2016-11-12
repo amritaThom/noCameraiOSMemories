@@ -11,14 +11,17 @@ import CoreData
 
 
 class HomeViewController: UITableViewController, CancelButtonDelegate, MemoryDelegate, FancyCellDelegate {
-    var imagesArray = [String]()
+   
+    
     var importantMemory = 0
-    var importantImage: UIImage?
+    //this is the array holding onto our Memory objects
     var memories = [Memory]()
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Very important to fetch all Memories out of Core Data right away
+        
         fetchAllMemories()
     }
 
@@ -26,7 +29,6 @@ class HomeViewController: UITableViewController, CancelButtonDelegate, MemoryDel
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
        
     func fetchAllMemories(){
@@ -42,100 +44,92 @@ class HomeViewController: UITableViewController, CancelButtonDelegate, MemoryDel
     
 
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
-        print("Adding!")
+        // When we press the add button, we'll go along the adding segue, but of course we'll swing by PrepareForSegue first
         performSegueWithIdentifier("addingSegue", sender: sender)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        
+        // if we want to go down the adding segue...
         if segue.identifier == "addingSegue"{
             
             let navigationController = segue.destinationViewController as! UINavigationController
-            let controller = navigationController.topViewController as! ImagePickerController
+            let controller = navigationController.topViewController as! UpdateViewController
+            //...our controller will be the UpdateViewController, and we'll assign ourselves as its Cancel Button Delegate and its Memories Delegate
             controller.cancelButtonDelegate = self
             controller.memoriesDelegate = self
-            controller.fileNumber = self.memories.count
+
         }
+        // if we want to go down the details segue....
         if segue.identifier == "detailsSegue"{
             let navigationController = segue.destinationViewController as! UINavigationController
             let controller = navigationController.topViewController as! DetailsViewController
+            // ... our controller will be the Details View Controller, and we'll assign ourselves as its cancel Button Delegate, its Memories Delegate, and tell it which memory we want to study in closer detail
             controller.cancelButtonDelegate = self
+            controller.memoriesDelegate = self
             controller.memoryToStudy = memories[importantMemory]
-            if let impimg = importantImage {
-                controller.importantImage = impimg
-            }
         }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // We need as many cells as there are memories in the memories array
         return memories.count
     }
     
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // we want to use our custom cell class, so all the cells we're building are from the Fancy Cell class
         let cell = tableView.dequeueReusableCellWithIdentifier("fancyCell") as! FancyCell
-        let correctString = memories[indexPath.row].fileName!
-        if getImage(correctString){
-            print("display non snail")
-            let cellimage = (getDocumentsDirectory() as NSString).stringByAppendingPathComponent(correctString)
-            cell.fancyCellImage.image = UIImage(contentsOfFile: cellimage)
-        }
-        else {
-            cell.fancyCellImage.image = UIImage(named: "snail")
-
-        }
-
+        // the name of the picture we want can be found by looking at the filename for the memory object found in the appropriate index of the memories array
+        let picName = memories[indexPath.row].fileName!
+        // with the name of the pic, we can now put the right image into the image view in the fancy cell
+        cell.fancyCellImage.image = UIImage(named: picName)
         
-        cell.fancyCellImage.contentMode = .ScaleAspectFit
-
+        // we'll find the name to go into the name outlet label in the fancy cell by going to the memories array and looking at the correct index and selecting its name property
         cell.nameOutlet?.text = memories[indexPath.row].name
+        // the cell's button delegate should be this view controller
         cell.buttonDelegate = self
-        cell.index = indexPath.row
+        
         return cell
     }
     
-    func getImage(filename:String) -> Bool{
-        let fileManager = NSFileManager.defaultManager()
-        let imagePath = (getDocumentsDirectory() as NSString).stringByAppendingPathComponent(filename)
-        if fileManager.fileExistsAtPath(imagePath){
-           return true
-        } else {
-            print("not found")
-            return false
-        }
-    }
     
     
-
-    func getDocumentsDirectory() -> NSString {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
+    //////////////////////////////DELEGATE STUFF //////////////////////////////////////
+    
     
     func cancelButtonPressedFrom(controller: UIViewController){
+        
+        //when another view controller calls upon this page as the delegate to run this method, this dismisses the top view controller. Since there may have been changes to our core data, just to be on the safe side, we'll fetch all memories again and reload the table view.
         dismissViewControllerAnimated(true, completion: nil)
         fetchAllMemories()
         tableView.reloadData()
         
     }
     
-    //////////////////////////////DELEGATE STUFF //////////////////////////////////////
-    
     func descriptionButtonPressedFrom(cell: FancyCell) {
-        print("Whoopsie!", cell.nameOutlet.text, cell.index, memories[cell.index])
-        importantMemory = cell.index
-        importantImage = cell.fancyCellImage.image
+        // When someone presses the description button found inside the fancy cell, this method will be called. We'll need to note which cell it was, because this will help us find the appropriate memory in the memories array
+        let index = tableView.indexPathForCell(cell as UITableViewCell)?.row
+        // the important memory that we want to take a closer look at will be found at this index
+        importantMemory = index!
+        
+        //perform the segue to the details page, but not before visiting PrepareForSegue!
         performSegueWithIdentifier("detailsSegue", sender: self)
         
     }
     
-    func imagePickerController(controller: ImagePickerController, didFinishWritingMemory memoryName: String, memoryDesc: String, memoryFileName: String){
+    func imagePickerController(didFinishWritingMemory memoryName: String, memoryDesc: String, memoryFileName: String){
+        
+        //when a new memory is made, we'll have to store this in core data
+        // dismiss the top view controller
         dismissViewControllerAnimated(true, completion: nil)
+        // create the object in Core Data
         let entity = NSEntityDescription.entityForName("Memory", inManagedObjectContext: managedObjectContext)
         let newMemory = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
         newMemory.setValue(memoryName, forKey: "name")
         newMemory.setValue(memoryDesc, forKey: "desc")
         newMemory.setValue(memoryFileName, forKey: "fileName")
+        
         if managedObjectContext.hasChanges {
             do {
                 try managedObjectContext.save()
@@ -145,10 +139,23 @@ class HomeViewController: UITableViewController, CancelButtonDelegate, MemoryDel
                 print("\(error)")
             }
         }
+        // Since we added something to core data, let's fetch them all again and reload the table view.
         fetchAllMemories()
         tableView.reloadData()
     }
-    
+    func imagePickerController(){
+        
+        // When we're all done updating a memory, all we have to do is check if the managed object context has changes. 
+        if managedObjectContext.hasChanges {
+            do { try managedObjectContext.save()
+                print("success in updating")
+            }
+            catch {
+                print("\(error)")
+            }
+        }
+
+    }
 
 
 }
